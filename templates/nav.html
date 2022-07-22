@@ -1,0 +1,29 @@
+{% load static %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/logo.png' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Gaming Laptop
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse m-2 text-center" id="navbarNavAltMarkup">
+      <div class="navbar-nav m-auto">
+        <a class="nav-link active btn btn-secondary active" aria-current="page" href="{% url 'home' %}">Home</a>
+        <a class="nav-link" href="{% url 'store' %}">Products</a>
+        <a class="nav-link" href="{% url 'admin:index' %}">Admin Login</a>
+      </div>
+
+      <div class="form-inline my-2 my-lg-0">
+        <a href="{% url 'userLogin' %}" class="btn btn-warning">Login</a>
+
+        <a href="{% url 'cart' %}">
+          <img id="cart-icon" src="{% static 'images/cart.png' %}">
+        </a>
+        <p id="cart-total">0</p>
+      </div>
+    </div>
+  </div>
+</nav>
