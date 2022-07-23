@@ -1,12 +1,13 @@
+from argparse import Action
 from django.shortcuts import render
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-
+import json
 
 # Create your views here.
-def index(request):
-    return render(request, 'main.html')
+# def index(request):
+#     return render(request, 'main.html')
 
 def cart(request):
     if request.user.is_authenticated:
@@ -15,7 +16,7 @@ def cart(request):
         items = order.orderitem_set.all()
     else:
         items = []
-        order = {'get_cart_total':0, 'get_cart_items': 0}
+        # order = {'get_cart_total':0, 'get_cart_items': 0}
     return render(request, 'store/cart.html',{'items': items,'order': order})
 
 def store(request):
@@ -29,9 +30,15 @@ def checkout(request):
         items = order.orderitem_set.all()
     else:
         items = []
-        order = {'get_cart_total':0, 'get_cart_items': 0}
+        # order = {'get_cart_total':0, 'get_cart_items': 0}
     return render(request, 'store/checkout.html',{'items': items, 'order': order})
 
 
-def updateItem(request):
-    return JsonResponse('Item was added', safe = False)
+# def updateItem(request):
+#     data = json.loads(request.data)
+#     productId = data ['productId']
+#     action = data ['action']
+
+#     print('Action:', action)
+#     print('productId:', productId)
+#     return JsonResponse('Item was added', safe = False)

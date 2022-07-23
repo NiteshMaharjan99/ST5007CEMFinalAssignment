@@ -1,4 +1,4 @@
-from tkinter import CASCADE
+
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -15,7 +15,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
-    image = models.ImageField(upload_to="static/images",null=True, blank=True)
+    image = models.FileField(upload_to="static/images",null=True, blank=True)
 
     def __str__(self):
         return self.name
