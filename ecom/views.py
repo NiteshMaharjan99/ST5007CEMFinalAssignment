@@ -14,8 +14,8 @@ from .utils import cookieCart, cartData, guestOrder
 def store(request):
     data = cartData(request)
     cartItems = data['cartItems']
-    order = data['order']
-    items = data['items']
+    # order = data['order']
+    # items = data['items']
 
     products = Product.objects.all()
     return render(request, 'store/stores.html',{'products' : products, 'cartItems' : cartItems})
