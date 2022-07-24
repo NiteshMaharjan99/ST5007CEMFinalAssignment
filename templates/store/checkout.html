@@ -44,8 +44,8 @@
 			<br>
 			<div class="box-element hidden" id="payment-info">
 				<small>Paypal Options</small>
-				<!--<button id="make-payment">Make payment</button>-->
-				<div id="paypal-button-container"></div>
+				<button id="make-payment">Make payment</button>
+				<!-- <div id="paypal-button-container"></div> -->
 			</div>
 			
 		</div>
@@ -75,33 +75,33 @@
 	<script>
 		var total = '{{order.get_cart_total}}'
         // Render the PayPal button into #paypal-button-container
-        paypal.Buttons({
+        // paypal.Buttons({
 
-        	style: {
-                color:  'blue',
-                shape:  'rect',
-            },
+        // 	style: {
+        //         color:  'blue',
+        //         shape:  'rect',
+        //     },
 
-            // Set up the transaction
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value:parseFloat(total).toFixed(2)
-                        }
-                    }]
-                });
-            },
+        //     // Set up the transaction
+        //     createOrder: function(data, actions) {
+        //         return actions.order.create({
+        //             purchase_units: [{
+        //                 amount: {
+        //                     value:parseFloat(total).toFixed(2)
+        //                 }
+        //             }]
+        //         });
+        //     },
 
-            // Finalize the transaction
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    // Show a success message to the buyer
-                    submitFormData()
-                });
-            }
+        //     // Finalize the transaction
+        //     onApprove: function(data, actions) {
+        //         return actions.order.capture().then(function(details) {
+        //             // Show a success message to the buyer
+        //             submitFormData()
+        //         });
+        //     }
 
-        }).render('#paypal-button-container');
+        // }).render('#paypal-button-container');
     </script>
 
 	<script type="text/javascript">
@@ -130,11 +130,11 @@
 	    	document.getElementById('payment-info').classList.remove("hidden");
 	    })
 
-		/*
+	
 	    document.getElementById('make-payment').addEventListener('click', function(e){
 	    	submitFormData()
 	    })
-	    */
+	 
 
 	    function submitFormData(){
 	    	console.log('Payment button clicked')
